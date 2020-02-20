@@ -62,7 +62,7 @@ class Person {
       return `${this.name}, ${this.age}`;
     };
 
-  }//constructor
+  };//constructor
 }//Person
 
 
@@ -82,6 +82,27 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+
+    this.fill = (gallons) => {
+      return this.tank += gallons;
+    };
+    this.drive = (distance) => {
+        this.odometer += distance;
+        this.tank -= distance/milesPerGallon;
+        };
+
+    if (this.tank <= 0) {
+      this.drive = (distance) => {
+        return distance = 0;
+      } 
+    };
+
+  }
 
 }
 
